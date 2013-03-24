@@ -1,0 +1,146 @@
+\documentclass[12pt,a4paper,oneside]{article}
+%deutscher Zeichensatz
+\usepackage[utf8]{inputenc}
+%Brüche darstellen
+\usepackage{nicefrac}
+% deutsche Silbentrennung
+\usepackage[ngerman]{babel} 
+%Lange Tabellen
+\usepackage{longtable}
+%Lorem Ipsum
+\usepackage{lipsum}
+%Farben
+\usepackage{xcolor}
+%ToDO
+\newcommand{\todo}[1]{\textbf{\textsc{\textcolor{red}{(TODO: #1)}}}}
+%Margins
+\usepackage[top=2.5 cm, bottom=2.5 cm, left=5 cm, right=1 cm]{geometry}
+% Sonderzeichen, wie Eurosymbol
+\usepackage{textcomp}
+
+%Format Überschriften
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries}{\thesection.\quad}{12pt}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection\quad}{12pt}{}
+
+%Linien in Tabellen
+\usepackage{booktabs}
+
+%Hyperlinks usw     
+\usepackage{url}
+\urlstyle{rm}
+% Literaturverzeichnis
+\usepackage[isbn=false,citestyle=authoryear-ibid,bibencoding=latin1,hyperref=true,bibstyle=authortitle,backend=bibtex,maxbibnames=30]{biblatex}
+\usepackage[babel,german=guillemets]{csquotes}
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\addbibresource{bib/Literaturverzeichnis.bib}
+\let\cite\textcite
+%spezielles Abbildungsnummerierungszeugs
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+%Abkürzungsverzeichnis
+\usepackage{acronym}
+%Sprache Times New Roman
+%\usepackage{mathptmx}
+\usepackage{txfonts} %Schriftart Times New Roman
+%Sprache: Deutsch
+\selectlanguage{ngerman}
+
+%Zeilenabstand
+\usepackage{setspace}
+
+%Formatierung Inhaltsverzeichnis
+\usepackage{tocloft, titletoc}  
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftaftertoctitleskip}{0em}
+
+\renewcommand{\cfttoctitlefont}{\bfseries}
+\tocloftpagestyle{fancy}   
+\titlecontents{section} % set formatting for \section -
+                        % \subsection must be formatted separately 
+[2.3em]                 % adjust left margin
+{\vspace{0.5em}}             % font formatting
+{\hspace{-1.8em}.\contentslabel{0.7em}\hspace{1em}} % section label and offset
+{\hspace*{-2.3em}}
+{\titlerule*[1mm]{.}\contentspage}
+\titlecontents{subsection} % set formatting for \subsection -
+[3em]                 % adjust left margin
+{\vspace{0.5em}}             % font formatting
+{\contentslabel{2.3em}} % section label and offset
+{\hspace*{-2.3em}}
+{\titlerule*[1mm]{.}\contentspage}
+\titlecontents{subsubsection} % set formatting for \subsubsection -
+[4.0em]                 % adjust left margin
+{\vspace{0.5em}}             % font formatting
+{\contentslabel{2.3em}\hspace{0.8em}} % section label and offset
+{\hspace*{-2.3em}}
+{\titlerule*[1mm]{.}\contentspage}
+
+%Kopfzeilen
+\usepackage{fancyhdr} %Paket laden
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.0pt} %obere Trennlinie
+\fancyhead[C]{\nouppercase{\color{gray}{\thepage}}}
+%Fußzeilen
+\usepackage[hang,flushmargin]{footmisc}    
+\renewcommand*{\footnotelayout}{\footnotesize} % size of text
+\renewcommand{\footnotemargin}{1.2em} % margin between text and number
+\setlength{\footnotesep}{1.5em}    % space between footnotes
+\setlength{\skip\footins}{2.5em}   % space between text & footnotes
+\begin{document}
+
+\input{titlepages/Title.tex}
+\newpage
+
+
+\pagenumbering{Roman}
+
+\setcounter{page}{2}
+\tableofcontents{}
+\clearpage
+%Abkürzungsverzeichnis
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\input{kapitel/Acronyms.tex}
+\newpage
+%Abbildungsverzeichnis
+%\addcontentsline{toc}{section}{Abbildungsverzeichnis}\listoffigures
+
+%\clearpage
+
+%Tabellenverzeichnis
+%\addcontentsline{toc}{section}{Tabellenverzeichnis}\listoftables
+%%\newpage
+\onehalfspacing
+
+%Zeilennummerierung arabisch
+\pagenumbering{arabic}
+% Einleitung
+\section{Problemstellung}
+\input{kapitel/01_Problemstellung.tex}
+\section{Ziel der Arbeit}
+\input{kapitel/02_Zielsetzung.tex}
+\section{Begriffsklärung}
+In der Arbeit werden nicht als allgemein bekannt vorauszusetzende Begriffe verwendet, die im Folgenden definiert werden.
+\subsection{Informationssystem}
+\input{kapitel/Definition_IS.tex}
+\subsection{Projekt}
+\input{kapitel/Definition_Projekt.tex}
+\subsection{Erfolgsfaktor}
+\input{kapitel/Definition_Erfolgsfaktor.tex}
+\subsection{Klassifizierung}
+\input{kapitel/Definition_Klassifizierung.tex}
+\section{Vorgehensweise}
+\input{kapitel/04_Vorgehensweise.tex}
+\section{Gliederung}
+\input{kapitel/05_Gliederung.tex}
+\section{Erwartete Ergebnisse}
+\input{kapitel/06_ErwarteteErgebnisse.tex}
+\section{Offene Punkte und Probleme}
+\input{kapitel/07_Probleme.tex}
+\clearpage
+%Literaturverzeichnis
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography[title={Literaturverzeichnis}]
+
+\end{document}
