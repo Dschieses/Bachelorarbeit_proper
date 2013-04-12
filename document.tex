@@ -39,7 +39,7 @@
 
 
 % Literaturverzeichnis
-\usepackage[isbn=false,citestyle=authoryear-ibid,bibencoding=latin1,hyperref=true,bibstyle=authortitle,backend=bibtex,maxbibnames=30]{biblatex}
+\usepackage[isbn=false,citestyle=authoryear,bibencoding=latin1,hyperref=true,bibstyle=authortitle,backend=bibtex,maxbibnames=30]{biblatex}
 \usepackage[babel,german=guillemets]{csquotes}
 \usepackage[colorlinks=false,hyperindex,pdfauthor={Peter Praeder},pdfborder={0 0 0}, pdfsubject={Bachelorarbeit},linkcolor={blue},citecolor={green},plainpages=false]{hyperref}
 \addbibresource{bib/Literaturverzeichnis.bib}
@@ -85,13 +85,13 @@
 {\titlerule*[1mm]{.}\contentspage}
 
 \titlecontents{subsubsection}  % set formatting for \subsubsection 
-[3.7em]                       % adjust left margin
+[4.7em]                       % adjust left margin
 {\vspace{0.5em}}            % font formatting
-{\contentslabel{2.3em}}     % section label and offset
-{\hspace*{-2.3em}}
+{\contentslabel{3.3em}}     % section label and offset
+{\hspace*{-1.3em}}
 {\titlerule*[1mm]{.}\contentspage}
 
-\titlecontents{figure}      % set formatting for \subsection 
+\titlecontents{figure}      % set formatting for \figures 
 [2.3em]                     % adjust left margin
 {\vspace{0.5em}}            % font formatting
 {\contentslabel{2.3em}}     % section label and offset
@@ -128,11 +128,13 @@
 
 \newcommand{\todo}[1]{\textbf{\textsc{\textcolor{red}{(TODO: #1)}}}}
 \newcommand{\syn}[1]{\textbf{\textsc{\textcolor{red}{(SYNONYM: #1)}}}}
+
 %--------------Worttrennung-------------------------------------------
 \hyphenation{be-rück-sich-tigt IS--Pro-jekt pro-jekt-er-folg}
 
 %--------------DOCUMENT-------------------------------------------------
 \begin{document}
+
 \pagestyle{plain}
 \input{titlepages/Title.tex}
 \newpage
@@ -183,39 +185,59 @@
 \input{kapitel/05_Aufbau.tex}
 %--------------Grundlagen-------------------------------------------------
 \section{Grundlagen}
-\subsection{Definitionen}
+\subsection{Begriffsdefinitionen}
 
-\subsubsection{Informationssystem}
-\input{kapitel/Definition_IS.tex}
-
-\subsubsection{Projekt}
-\input{kapitel/Definition_Projekt.tex}
-
-\subsubsection{Projekterfolg}
-\input{kapitel/Definition_Projekterfolg.tex}
-
-\subsubsection{Erfolgsfaktoren}
-\input{kapitel/Definition_Erfolgsfaktor.tex}
-
-\subsubsection{Klassifizierung}
+\textbf{Informationssystem}\\\noindent
+\input{kapitel/Definition_IS.tex}\\
+\\\noindent
+\textbf{Projekt}\\\noindent
+\input{kapitel/Definition_Projekt.tex}\\
+\\\noindent
+\textbf{Projekterfolg}\\\noindent
+\input{kapitel/Definition_Projekterfolg.tex}\\
+\\\noindent
+\textbf{Erfolgsfaktoren}\\\noindent
+\input{kapitel/Definition_Erfolgsfaktor.tex}\\
+\\\noindent
+\textbf{Klassifizierung}\\\noindent
 \input{kapitel/Definition_Klassifizierung.tex}
-
-\subsubsection{Klassifizierungsart}
-
 
 \subsection{Klassifizierung von \EF}
 \input{kapitel/Grundlagen.tex}
-\subsubsection{Warum}
-\subsubsection{Wie}
-\subsubsection{Besser?}
-
 
 %--------------Hauptteil-------------------------------------------------
 \clearpage
 \section{Klassifizierungsarten in der Literatur}
+Im Folgenden werden zunächst die verschiedenen Arten, Erfolgsfaktoren zu klassifizieren mitsamt der Begründung der Autoren dargestellt.
+Auf dieser Basis wird anschließend eine Übersicht erstellt und eine Schnittmengenbetrachtung vorgenommen. 
 \subsection{Klassifizierungsarten und deren Begründungen}
-\subsubsection{Studie a}
+%--------------Arten-------------------------------------------------
+\input{kapitel/arten/daniel1961.tex}
 
+\input{kapitel/arten/rockart1979.tex}
+
+\input{kapitel/arten/slevin_pinto1987.tex}
+
+\input{kapitel/arten/belassi_tukel1996.tex}
+
+\input{kapitel/arten/reel1999.tex}
+
+\input{kapitel/arten/milis_mercken2002.tex}
+
+\input{kapitel/arten/kendra_teplin2004.tex}
+
+\input{kapitel/arten/salmeron_herrero2005.tex}
+
+\input{kapitel/arten/hyväri2006.tex}
+
+\input{kapitel/arten/fortune_white2006.tex}
+
+\input{kapitel/arten/chow_cao2008.tex}
+
+\input{kapitel/arten/pankratz_loebbecke2011.tex}
+
+\input{kapitel/arten/sudhakar2012.tex}
+%--------------Arten Ende-------------------------------------------------
 \subsection{Übersicht}
 
 \subsection{Schnittmengenbetrachtung}
@@ -224,7 +246,7 @@
 
 %--------------Fazit-------------------------------------------------
 \section{Fazit}
-
+\input{kapitel/Fazit.tex}
 %--------------Literaturverzeichnis-------------------------------------------------
 \clearpage
 \phantomsection
@@ -237,4 +259,5 @@
 \addcontentsline{toc}{section}{Erklärung}
 \section*{Erklärung}
 \input{titlepages/Declaration.tex}
+
 \end{document}
